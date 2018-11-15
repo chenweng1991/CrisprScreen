@@ -25,6 +25,6 @@ dev.off()
 if(png){
 png(pngname)
 print(p)
-}
 dev.off()
+}
 }
