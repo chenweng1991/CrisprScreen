@@ -4,6 +4,7 @@
 library(dplyr)
 library(qvalue)
 library(ggplot2)
+library(CrisprScreeAnalysis)
 ```
 
 ### Loading two readsnumber data for comparison
