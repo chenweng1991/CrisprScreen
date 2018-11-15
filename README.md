@@ -11,4 +11,6 @@ This package is for statistic analysis for whole genome Crispr screening data.
 devtools::install_github("chenweng1991/CrisprScreen")
 ```
 ## Usage
-#### For more detail please check out "example.md"
+#### For more detail please check out [vignettes](https://github.com/chenweng1991/CrisprScreen/blob/master/example.md)
+
+
