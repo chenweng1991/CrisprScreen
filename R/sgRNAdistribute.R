@@ -2,13 +2,19 @@
 #'
 #' This function allows you to how the sgRNA distributed in terms of pvalue/fdr and fold change
 #' @param enrichment.data  The data prepared by "ComputeEnrichment"
+#' @param ptotest  a vector of p values to be tested
+#' @param pnames  a vector of names of p values
+#' @param FCtotest  a vector of fold change to be tested ( >1)
+#' @param FCnames  a vector of names of fold change to be tested ( >1)
+#' @param FC.lt  a vector of fold change to be tested ( <1)
+#' @param FC.lt.names  a vector of names of fold change to be tested ( <1)
 #' @return No return but print out useful information of p value and fdr distribution
 #' @export
 #' @examples
-#' sgRNAdistribute(enrichment.data=P5.P6.enrichment)
-sgRNAdistribute<-function(enrichment.data=P5.P6.enrichment,ptotest=c(0.05,0.01,0.001,0.0001,0.00001),
-pnames=c("<0.05","<0.01","<0.001","<0.0001","<0.00001"),FCtotest=c(1.2,1.5,2,5,10),FCnames=c(">1.2",">1.5",">2",">5",">10"),
- FC.lt=c(0.83,0.66,0.5,0.2,0.1),FC.lt.names=c("<0.83","<0.66","<0.5","<0.2","<0.1")){
+#' sgRNAdistribute(enrichment.data=P5.P6.enrichment,totest=c(0.05,0.01,0.001,0.0001,0.00001),pnames=c("<0.05","<0.01","<0.001","<0.0001","<0.00001"),FCtotest=c(1.2,1.5,2,5,10),FCnames=c(">1.2",">1.5",">2",">5",">10"),FC.lt=c(0.83,0.66,0.5,0.2,0.1),FC.lt.names=c("<0.83","<0.66","<0.5","<0.2","<0.1"))
+
+
+sgRNAdistribute<-function(enrichment.data=P5.P6.enrichment,ptotest=c(0.05,0.01,0.001,0.0001,0.00001),pnames=c("<0.05","<0.01","<0.001","<0.0001","<0.00001"),FCtotest=c(1.2,1.5,2,5,10),FCnames=c(">1.2",">1.5",">2",">5",">10"),FC.lt=c(0.83,0.66,0.5,0.2,0.1),FC.lt.names=c("<0.83","<0.66","<0.5","<0.2","<0.1")){
 sgRNAnumbers.p<-c()
 for (pvalue in ptotest)
 {

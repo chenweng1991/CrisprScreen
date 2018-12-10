@@ -4,10 +4,27 @@
 \alias{sgRNAdistribute}
 \title{sgRNAdistribute}
 \usage{
-sgRNAdistribute(enrichment.data = P5.P6.enrichment)
+sgRNAdistribute(enrichment.data = P5.P6.enrichment, ptotest = c(0.05,
+  0.01, 0.001, 1e-04, 1e-05), pnames = c("<0.05", "<0.01", "<0.001",
+  "<0.0001", "<0.00001"), FCtotest = c(1.2, 1.5, 2, 5, 10),
+  FCnames = c(">1.2", ">1.5", ">2", ">5", ">10"), FC.lt = c(0.83, 0.66,
+  0.5, 0.2, 0.1), FC.lt.names = c("<0.83", "<0.66", "<0.5", "<0.2",
+  "<0.1"))
 }
 \arguments{
 \item{enrichment.data}{The data prepared by "ComputeEnrichment"}
+
+\item{ptotest}{a vector of p values to be tested}
+
+\item{pnames}{a vector of names of p values}
+
+\item{FCtotest}{a vector of fold change to be tested ( >1)}
+
+\item{FCnames}{a vector of names of fold change to be tested ( >1)}
+
+\item{FC.lt}{a vector of fold change to be tested ( <1)}
+
+\item{FC.lt.names}{a vector of names of fold change to be tested ( <1)}
 }
 \value{
 No return but print out useful information of p value and fdr distribution
@@ -16,5 +33,5 @@ No return but print out useful information of p value and fdr distribution
 This function allows you to how the sgRNA distributed in terms of pvalue/fdr and fold change
 }
 \examples{
-sgRNAdistribute(enrichment.data=P5.P6.enrichment)
+sgRNAdistribute(enrichment.data=P5.P6.enrichment,totest=c(0.05,0.01,0.001,0.0001,0.00001),pnames=c("<0.05","<0.01","<0.001","<0.0001","<0.00001"),FCtotest=c(1.2,1.5,2,5,10),FCnames=c(">1.2",">1.5",">2",">5",">10"),FC.lt=c(0.83,0.66,0.5,0.2,0.1),FC.lt.names=c("<0.83","<0.66","<0.5","<0.2","<0.1"))
 }
