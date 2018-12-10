@@ -5,8 +5,9 @@
 \title{ShowsgRNAvocano}
 \usage{
 ShowsgRNAvocano(enrichment.data, pCut = 1e-05, fcCut = 2,
-  pvalueadjusted = T, pdfname = "sgRNA.vocano.pdf", png = F,
-  pngname = "sgRNA.vocano.png")
+  pvalueadjusted = T, dopdf = T, pdfname = "sgRNA.vocano.pdf",
+  png = F, pngname = "sgRNA.vocano.png", pdfh = 7, pdfw = 7,
+  pngh = 1000, pngw = 1000, pngr = 100)
 }
 \arguments{
 \item{enrichment.data}{The data prepared by "ComputeEnrichment"}
@@ -17,11 +18,23 @@ ShowsgRNAvocano(enrichment.data, pCut = 1e-05, fcCut = 2,
 
 \item{pvalueadjusted}{To tell if the y axis used is the adjusted pvalue or original p value, default is TRUE}
 
+\item{dopdf}{if true, print out pdf}
+
 \item{pdfname}{the file name for pdf of vocano plot}
 
 \item{png, }{if true then also make a png format. default is F}
 
 \item{pngname}{the file name for png of vocano plot}
+
+\item{pdfh}{the height of pdf}
+
+\item{pdfw}{the width of pdf}
+
+\item{pngh}{the height of png}
+
+\item{pngw}{the width of png}
+
+\item{pngr}{the resolution of png}
 }
 \value{
 no return but generate a pdf or png
