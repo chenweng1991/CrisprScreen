@@ -6,27 +6,29 @@
 #' @export
 #' @examples
 #' sgRNAdistribute(enrichment.data=P5.P6.enrichment)
-sgRNAdistribute<-function(enrichment.data=P5.P6.enrichment){
+sgRNAdistribute<-function(enrichment.data=P5.P6.enrichment,ptotest=c(0.05,0.01,0.001,0.0001,0.00001),
+pnames=c("<0.05","<0.01","<0.001","<0.0001","<0.00001"),FCtotest=c(1.2,1.5,2,5,10),FCnames=c(">1.2",">1.5",">2",">5",">10"),
+ FC.lt=c(0.83,0.66,0.5,0.2,0.1),FC.lt.names=c("<0.83","<0.66","<0.5","<0.2","<0.1")){
 sgRNAnumbers.p<-c()
-for (pvalue in c(0.05,0.01,0.001,0.0001,0.00001))
+for (pvalue in ptotest)
 {
   sgRNAnumbers.p<-c(sgRNAnumbers.p,length(which(enrichment.data[,5]<=pvalue)))
 }
-names(sgRNAnumbers.p)<-c("<0.05","<0.01","<0.001","<0.0001","<0.00001")
+names(sgRNAnumbers.p)<-pnames
 
 sgRNAnumbers.F1<-c()
-for (FC in c(1.2,1.5,2,5,10))
+for (FC in FCtotest)
 {
   sgRNAnumbers.F1<-c(sgRNAnumbers.F1,length(which(enrichment.data[,6]>FC)))
 }
-names(sgRNAnumbers.F1)<-c(">1.2",">1.5",">2",">5",">10")
+names(sgRNAnumbers.F1)<-FCnames
 
 sgRNAnumbers.F2<-c()
-for (FC in c(0.83,0.66,0.5,0.2,0.1))
+for (FC in FC.lt)
 {
   sgRNAnumbers.F2<-c(sgRNAnumbers.F2,length(which(enrichment.data[,6]<FC)))
 }
-names(sgRNAnumbers.F2)<-c("<0.83","<0.66","<0.5","<0.2","<0.1")
+names(sgRNAnumbers.F2)<-FC.lt.names
 print(paste("totalo sgRNA number is",nrow(enrichment.data)))
 print("sgRNA summarise by pvalue/fdr")
 print(sgRNAnumbers.p)
